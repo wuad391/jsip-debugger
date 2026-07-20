@@ -133,6 +133,7 @@ and dump_flambda_let = ref (None : int option) (* -dflambda-let=... *)
 and dump_flambda_verbose = ref false    (* -dflambda-verbose *)
 and dump_instr = ref false              (* -dinstr *)
 and keep_camlprimc_file = ref false     (* -dcamlprimc *)
+and visual_replay = ref false (* -vreplay *)
 
 let keyword_edition: string option ref = ref None
 
