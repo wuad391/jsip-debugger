@@ -1,0 +1,131 @@
+[
+  structure_item (test-programs/stupid.ml[1,0+0]..[1,0+11])
+    Pstr_open Fresh
+    module_expr (test-programs/stupid.ml[1,0+5]..[1,0+11])
+      Pmod_ident "Printf" (test-programs/stupid.ml[1,0+5]..[1,0+11])
+  structure_item (test-programs/stupid.ml[3,13+0]..[3,13+70])
+    Pstr_value Rec
+    [
+      <def>
+        pattern (test-programs/stupid.ml[3,13+8]..[3,13+17])
+          Ppat_var "factorial" (test-programs/stupid.ml[3,13+8]..[3,13+17])
+        expression (test-programs/stupid.ml[3,13+18]..[3,13+70]) ghost
+          Pexp_function
+          [
+            Pparam_val (test-programs/stupid.ml[3,13+18]..[3,13+21])
+              Nolabel
+              None
+              pattern (test-programs/stupid.ml[3,13+18]..[3,13+21])
+                Ppat_var "acc" (test-programs/stupid.ml[3,13+18]..[3,13+21])
+            Pparam_val (test-programs/stupid.ml[3,13+22]..[3,13+23])
+              Nolabel
+              None
+              pattern (test-programs/stupid.ml[3,13+22]..[3,13+23])
+                Ppat_var "n" (test-programs/stupid.ml[3,13+22]..[3,13+23])
+          ]
+          None
+          Pfunction_body
+            expression (test-programs/stupid.ml[3,13+26]..[3,13+70])
+              Pexp_ifthenelse
+              expression (test-programs/stupid.ml[3,13+29]..[3,13+32])
+                Pexp_apply
+                expression (test-programs/stupid.ml[3,13+30]..[3,13+31])
+                  Pexp_ident "=" (test-programs/stupid.ml[3,13+30]..[3,13+31])
+                [
+                  <arg>
+                  Nolabel
+                    expression (test-programs/stupid.ml[3,13+29]..[3,13+30])
+                      Pexp_ident "n" (test-programs/stupid.ml[3,13+29]..[3,13+30])
+                  <arg>
+                  Nolabel
+                    expression (test-programs/stupid.ml[3,13+31]..[3,13+32])
+                      Pexp_constant
+                      constant (test-programs/stupid.ml[3,13+31]..[3,13+32])
+                        PConst_int (0,None)
+                ]
+              expression (test-programs/stupid.ml[3,13+38]..[3,13+41])
+                Pexp_ident "acc" (test-programs/stupid.ml[3,13+38]..[3,13+41])
+              Some
+                expression (test-programs/stupid.ml[3,13+47]..[3,13+70])
+                  Pexp_apply
+                  expression (test-programs/stupid.ml[3,13+47]..[3,13+56])
+                    Pexp_ident "factorial" (test-programs/stupid.ml[3,13+47]..[3,13+56])
+                  [
+                    <arg>
+                    Nolabel
+                      expression (test-programs/stupid.ml[3,13+57]..[3,13+64])
+                        Pexp_apply
+                        expression (test-programs/stupid.ml[3,13+61]..[3,13+62])
+                          Pexp_ident "*" (test-programs/stupid.ml[3,13+61]..[3,13+62])
+                        [
+                          <arg>
+                          Nolabel
+                            expression (test-programs/stupid.ml[3,13+58]..[3,13+61])
+                              Pexp_ident "acc" (test-programs/stupid.ml[3,13+58]..[3,13+61])
+                          <arg>
+                          Nolabel
+                            expression (test-programs/stupid.ml[3,13+62]..[3,13+63])
+                              Pexp_ident "n" (test-programs/stupid.ml[3,13+62]..[3,13+63])
+                        ]
+                    <arg>
+                    Nolabel
+                      expression (test-programs/stupid.ml[3,13+65]..[3,13+70])
+                        Pexp_apply
+                        expression (test-programs/stupid.ml[3,13+67]..[3,13+68])
+                          Pexp_ident "-" (test-programs/stupid.ml[3,13+67]..[3,13+68])
+                        [
+                          <arg>
+                          Nolabel
+                            expression (test-programs/stupid.ml[3,13+66]..[3,13+67])
+                              Pexp_ident "n" (test-programs/stupid.ml[3,13+66]..[3,13+67])
+                          <arg>
+                          Nolabel
+                            expression (test-programs/stupid.ml[3,13+68]..[3,13+69])
+                              Pexp_constant
+                              constant (test-programs/stupid.ml[3,13+68]..[3,13+69])
+                                PConst_int (1,None)
+                        ]
+                  ]
+    ]
+  structure_item (test-programs/stupid.ml[5,87+0]..[5,87+49])
+    Pstr_value Nonrec
+    [
+      <def>
+        pattern (test-programs/stupid.ml[5,87+4]..[5,87+6])
+          Ppat_construct "()" (test-programs/stupid.ml[5,87+4]..[5,87+6])
+          None
+        expression (test-programs/stupid.ml[5,87+9]..[5,87+49])
+          Pexp_apply
+          expression (test-programs/stupid.ml[5,87+9]..[5,87+15])
+            Pexp_ident "printf" (test-programs/stupid.ml[5,87+9]..[5,87+15])
+          [
+            <arg>
+            Nolabel
+              expression (test-programs/stupid.ml[5,87+16]..[5,87+33])
+                Pexp_constant
+                constant (test-programs/stupid.ml[5,87+16]..[5,87+33])
+                  PConst_string("Hello world: %d",(test-programs/stupid.ml[5,87+17]..[5,87+32]),None)
+            <arg>
+            Nolabel
+              expression (test-programs/stupid.ml[5,87+34]..[5,87+49])
+                Pexp_apply
+                expression (test-programs/stupid.ml[5,87+35]..[5,87+44])
+                  Pexp_ident "factorial" (test-programs/stupid.ml[5,87+35]..[5,87+44])
+                [
+                  <arg>
+                  Nolabel
+                    expression (test-programs/stupid.ml[5,87+45]..[5,87+46])
+                      Pexp_constant
+                      constant (test-programs/stupid.ml[5,87+45]..[5,87+46])
+                        PConst_int (1,None)
+                  <arg>
+                  Nolabel
+                    expression (test-programs/stupid.ml[5,87+47]..[5,87+48])
+                      Pexp_constant
+                      constant (test-programs/stupid.ml[5,87+47]..[5,87+48])
+                        PConst_int (5,None)
+                ]
+          ]
+    ]
+]
+
