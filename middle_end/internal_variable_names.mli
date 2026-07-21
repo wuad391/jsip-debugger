@@ -73,6 +73,7 @@ val raise : t
 val raise_arg : t
 val read_mutable : t
 val remove_unused_arguments : t
+val my_flag : t
 val result : t
 val send_arg : t
 val sequence : t

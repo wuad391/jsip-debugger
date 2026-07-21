@@ -36,6 +36,7 @@ module type Common_options = sig
   val _ppx : string -> unit
   val _keywords: string -> unit
   val _principal : unit -> unit
+  val _my_flag : unit -> unit
   val _no_principal : unit -> unit
   val _rectypes : unit -> unit
   val _no_rectypes : unit -> unit
@@ -114,6 +115,7 @@ module type Compiler_options = sig
   val _plugin : string -> unit
   val _pp : string -> unit
   val _principal : unit -> unit
+  val _my_flag : unit -> unit
   val _no_principal : unit -> unit
   val _rectypes : unit -> unit
   val _runtime_variant : string -> unit

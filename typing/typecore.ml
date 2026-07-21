@@ -5134,8 +5134,13 @@ and type_expect_
           let ifnot = type_expect env sifnot ty_expected_explained in
           (* Keep sharing *)
           unify_exp ~sexp env ifnot ifso.exp_type;
+          let e = 
+            if !Clflags.my_flag 
+            then Texp_ifthenelse(cond, ifnot, Some ifso) 
+            else Texp_ifthenelse(cond, ifso, Some ifnot) 
+          in
           re {
-            exp_desc = Texp_ifthenelse(cond, ifso, Some ifnot);
+            exp_desc = e;
             exp_loc = loc; exp_extra = [];
             exp_type = ifso.exp_type;
             exp_attributes = sexp.pexp_attributes;

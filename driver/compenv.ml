@@ -365,7 +365,7 @@ let read_one_param ppf position name v =
       int_setter ppf "unbox-closures-factor" unbox_closures_factor v
   | "remove-unused-arguments" ->
       set "remove-unused-arguments" [ remove_unused_arguments ] v
-
+  | "my-flag" -> set "my-flag" [ my_flag ] v
   | "inlining-report" ->
       if !native_code then
         set "inlining-report" [ inlining_report ] v

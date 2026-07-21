@@ -299,6 +299,8 @@ let raise = "raise"
 let raise_arg = "raise_arg"
 let read_mutable = "read_mutable"
 let remove_unused_arguments = "remove_unused_arguments"
+
+let my_flag = "my_flag"
 let result = "result"
 let send_arg = "send_arg"
 let sequence = "sequence"

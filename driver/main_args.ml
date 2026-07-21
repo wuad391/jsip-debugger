@@ -453,6 +453,8 @@ let mk_remove_unused_arguments f =
   "-remove-unused-arguments", Arg.Unit f,
   " Remove unused function arguments"
 
+let mk_my_flag f = "-my-flag", Arg.Unit f, "My flag"
+
 let mk_runtime_variant f =
   "-runtime-variant", Arg.String f,
   "<str>  Use the <str> variant of the run-time system"
@@ -843,6 +845,7 @@ module type Common_options = sig
   val _ppx : string -> unit
   val _keywords: string -> unit
   val _principal : unit -> unit
+  val _my_flag : unit -> unit
   val _no_principal : unit -> unit
   val _rectypes : unit -> unit
   val _no_rectypes : unit -> unit
@@ -922,6 +925,8 @@ module type Compiler_options = sig
   val _plugin : string -> unit
   val _pp : string -> unit
   val _principal : unit -> unit
+
+  val _my_flag : unit -> unit
   val _no_principal : unit -> unit
   val _rectypes : unit -> unit
   val _runtime_variant : string -> unit
@@ -1011,6 +1016,7 @@ module type Optcommon_options = sig
   val _unbox_closures_factor : int -> unit
   val _inline_branch_factor : string -> unit
   val _remove_unused_arguments : unit -> unit
+
   val _no_unbox_free_vars_of_closures : unit -> unit
   val _no_unbox_specialised_args : unit -> unit
   val _o2 : unit -> unit
@@ -1092,6 +1098,7 @@ struct
     mk_alert F._alert;
     mk_absname F._absname;
     mk_no_absname F._no_absname;
+    mk_my_flag F._my_flag;
     mk_annot F._annot;
     mk_binannot F._binannot;
     mk_binannot_occurrences F._binannot_occurrences;
@@ -1155,6 +1162,7 @@ struct
     mk_ppx F._ppx;
     mk_plugin F._plugin;
     mk_principal F._principal;
+    mk_my_flag F._my_flag;
     mk_no_principal F._no_principal;
     mk_rectypes F._rectypes;
     mk_no_rectypes F._no_rectypes;
@@ -1247,6 +1255,7 @@ struct
     mk_ppx F._ppx;
     mk_keywords F._keywords;
     mk_principal F._principal;
+    mk_my_flag F._my_flag;
     mk_no_principal F._no_principal;
     mk_rectypes F._rectypes;
     mk_no_rectypes F._no_rectypes;
@@ -1381,6 +1390,7 @@ struct
     mk_pp F._pp;
     mk_ppx F._ppx;
     mk_principal F._principal;
+    mk_my_flag F._my_flag;
     mk_no_principal F._no_principal;
     mk_rectypes F._rectypes;
     mk_no_rectypes F._no_rectypes;
@@ -1516,6 +1526,7 @@ module Make_opttop_options (F : Opttop_options) = struct
     mk_open F._open;
     mk_ppx F._ppx;
     mk_principal F._principal;
+    mk_my_flag F._my_flag;
     mk_no_principal F._no_principal;
     mk_rectypes F._rectypes;
     mk_no_rectypes F._no_rectypes;
@@ -1608,6 +1619,7 @@ struct
     mk_pp F._pp;
     mk_ppx F._ppx;
     mk_principal F._principal;
+    mk_my_flag F._my_flag;
     mk_no_principal F._no_principal;
     mk_rectypes F._rectypes;
     mk_no_rectypes F._no_rectypes;
@@ -1703,6 +1715,7 @@ module Default = struct
     let _nocwd = set no_cwd
     let _open s = open_modules := (s :: (!open_modules))
     let _principal = set principal
+    let _my_flag = set my_flag
     let _rectypes = set recursive_types
     let _safer_matching = set safer_matching
     let _short_paths = clear real_paths
@@ -1843,6 +1856,7 @@ module Default = struct
       use_inlining_arguments_set ~round:1 o2_arguments;
       use_inlining_arguments_set ~round:0 o1_arguments
     let _remove_unused_arguments = set remove_unused_arguments
+
     let _rounds n = simplify_rounds := (Some n)
     let _unbox_closures = set unbox_closures
     let _unbox_closures_factor f = unbox_closures_factor := f

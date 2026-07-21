@@ -132,6 +132,7 @@ let implementation info ~backend =
   Misc.try_finally ?always:None ~exceptionally (fun () ->
     let parse_result = parse_impl info in
     if Clflags.(should_stop_after Compiler_pass.Parsing) then () else begin
+      
       let typed = typecheck_impl parse_result in
       if Clflags.(should_stop_after Compiler_pass.Typing) then () else begin
         backend info typed

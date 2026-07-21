@@ -244,7 +244,6 @@ let inline_max_unroll =
 let inline_max_depth =
   ref (Int_arg_helper.default default_inline_max_depth)
 
-
 let unbox_specialised_args = ref true   (* -no-unbox-specialised-args *)
 let unbox_free_vars_of_closures = ref true
 let unbox_closures = ref false          (* -unbox-closures *)
@@ -252,6 +251,8 @@ let default_unbox_closures_factor = 10
 let unbox_closures_factor =
   ref default_unbox_closures_factor      (* -unbox-closures-factor *)
 let remove_unused_arguments = ref false (* -remove-unused-arguments *)
+
+let my_flag = ref false (* -my-flag *)
 
 type inlining_arguments = {
   inline_call_cost : int option;
